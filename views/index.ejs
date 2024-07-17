@@ -16,7 +16,7 @@
                 <form action="/submit" method="POST" class="form-container">
                   <div class="mb-3">
                     <label for="ipAddress" class="form-label">Enter an IP Address:</label>
-                    <input type="text" class="form-control" id="ipAddress" name="ipAddress" placeholder="E.g., 192.168.0.1" required>
+                    <input type="text" class="form-control" id="ipAddress" name="ipAddress" pattern="^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$|^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$" required title="The format of your IP address is invalid. Example: 162.55.51.87">
                     <div class="invalid-feedback">Please enter a valid IP address.</div>
                   </div>
                   <button type="submit" class="btn btn-primary w-100">Check Security</button>
