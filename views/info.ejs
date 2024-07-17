@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+<h1>hello from info.ejs</h1>
+<% if (locals.companyName) { %>
+   
+    <h2>Response obj: <%= companyName %></h2>
+    <h2>Response obj: <%= country %></h2>
+    <h2>Response obj: <%= state %></h2>
+    <h2>Response obj: <%= city %></h2>
+    <h2>Response obj: <%= type %></h2>
+    <h2>Response obj: <%= isAbuser %></h2>
+    <h2>Response obj: <%= isCrawler %></h2>
+    <h2>Response obj: <%= email %></h2>
+    
+<% } else { %>
+    <h3>issue found</h3>
+ <% } %>
+<%- include("partials/footer.ejs") %>
