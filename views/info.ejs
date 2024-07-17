@@ -1,17 +1,28 @@
 <%- include("partials/header.ejs") %>
-<h1>hello from info.ejs</h1>
-<% if (locals.companyName) { %>
-   
-    <h2>Response obj: <%= companyName %></h2>
-    <h2>Response obj: <%= country %></h2>
-    <h2>Response obj: <%= state %></h2>
-    <h2>Response obj: <%= city %></h2>
-    <h2>Response obj: <%= type %></h2>
-    <h2>Response obj: <%= isAbuser %></h2>
-    <h2>Response obj: <%= isCrawler %></h2>
-    <h2>Response obj: <%= email %></h2>
-    
-<% } else { %>
-    <h3>issue found</h3>
- <% } %>
+
+<div class="container my-5">
+  <h1 class="text-center">IP Address Information</h1>
+  
+  <% if (locals.error) { %>
+    <div class="alert alert-danger" role="alert">
+      <h3>Error: <%= error %></h3>
+    </div>
+  <% } %>
+
+<div class="card my-4">
+    <div class="card-body">
+    <h2 class="card-title">IP Address Details</h2>
+    <p class="card-text"><strong>Company Name:</strong> <%= companyName %></p>
+    <p class="card-text"><strong>Country:</strong> <%= country %></p>
+    <p class="card-text"><strong>State:</strong> <%= state %></p>
+    <p class="card-text"><strong>City:</strong> <%= city %></p>
+    <p class="card-text"><strong>Type:</strong> <%= type %></p>
+    <p class="card-text"><strong>Is Abuser:</strong> <%= isAbuser %></p>
+    <p class="card-text"><strong>Is Crawler:</strong> <%= isCrawler %></p>
+    <p class="card-text"><strong>Email:</strong> <%= email %></p>
+    </div>
+</div>
+
+</div>
+
 <%- include("partials/footer.ejs") %>
