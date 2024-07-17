@@ -16,26 +16,7 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 });
 
-
-// const dummyObj = {
-//     ip: '104.16.143.237',
-//     rir: 'ARIN',
-//     is_bogon: false,
-//     is_mobile: false,
-//     is_crawler: false,
-//     company: {
-//       name: 'Cloudflare, Inc.',
-//       abuser_score: '0.0027 (Low)',
-//       domain: 'cloudflare.com',
-//       type: 'hosting',
-//       network: '104.16.0.0 - 104.31.255.255',
-//       whois: 'https://api.ipapi.is/?whois=104.16.0.0'
-//     }
-//   };
-
-// used to save api response to access in try block and solves the issue that info.ejs company is undefined
-// let response;
-
+// Handles api request and sends data to info.ejs file to be displayed to user
 app.post("/submit", async (req, res) => {
    
     const address = req.body.ipAddress;
@@ -44,6 +25,7 @@ app.post("/submit", async (req, res) => {
         // use user passed in ip address to get data from api  
         const response = await axios.get(`${API_URL}?q=${address}`);
 
+        // data to be sent to info.ejs
         const companyName = JSON.stringify(response.data.company.name);
         const country = JSON.stringify(response.data.location.country);
         const state = JSON.stringify(response.data.location.state); // some ip may not have states make sure to account for this check if state !== to "NA" in info.ejs file before rendering 
@@ -56,10 +38,8 @@ app.post("/submit", async (req, res) => {
         res.render("info.ejs", { companyName, country, state, city, type, isAbuser, isCrawler, email});
     
     }catch (error) {
-        res.render("info.ejs", { error });
-        // console.error("Error occurred:", error.message);
-        // res.render("info.ejs", { error: error.message || "An error occurred" });
-   
+        // sends api error or default error
+        res.render("info.ejs", { error: error.message || "An error occurred" });
     }
 });
 
