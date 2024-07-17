@@ -2,7 +2,7 @@
 
 <div class="container my-5">
   <h1 class="text-center">IP Address Information</h1>
-  
+
   <% if (locals.error) { %>
     <div class="alert alert-danger" role="alert">
       <h3>Error: <%= error %></h3>
@@ -17,9 +17,9 @@
     <p class="card-text"><strong>State:</strong> <%= state %></p>
     <p class="card-text"><strong>City:</strong> <%= city %></p>
     <p class="card-text"><strong>Type:</strong> <%= type %></p>
-    <p class="card-text"><strong>Is Abuser:</strong> <%= isAbuser %></p>
-    <p class="card-text"><strong>Is Crawler:</strong> <%= isCrawler %></p>
-    <p class="card-text"><strong>Email:</strong> <%= email %></p>
+    <p class="card-text"><strong>Is Malicious:</strong> <%= isAbuser %></p>
+    <p class="card-text"><strong>Is Crawler/Bot:</strong> <%= isCrawler %></p>
+    <p class="card-text"><strong>Email to Report Suspicious IP:</strong> <%= email %></p>
     </div>
 </div>
 
