@@ -1,15 +1,11 @@
 
 <%- include("partials/header.ejs") %>
 
-    
-  
     <form action="/submit" method="POST">
         <label for="ipAddress">Enter an IP Address:</label>
-        <input type="text" name="ipAddress">
+        <input type="text" id="ipAddress" name="ipAddress" pattern="^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$|^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$" required>
         <button type="submit">Submit</button>
     </form>
   
-    
-        
 <%- include("partials/footer.ejs") %>
 
