@@ -34,17 +34,17 @@ app.get("/", (req, res) => {
 //   };
 
 // used to save api response to access in try block and solves the issue that info.ejs company is undefined
-let response;
+// let response;
 
 app.post("/submit", async (req, res) => {
    
     const address = req.body.ipAddress;
-    
+
     try {
         // use user passed in ip address to get data from api  
-        response = await axios.get(`${API_URL}?q=${address}`);
+        const response = await axios.get(`${API_URL}?q=${address}`);
+
         const companyName = JSON.stringify(response.data.company.name);
-       
         const country = JSON.stringify(response.data.location.country);
         const state = JSON.stringify(response.data.location.state); // some ip may not have states make sure to account for this check if state !== to "NA" in info.ejs file before rendering 
         const city = JSON.stringify(response.data.location.city); 
